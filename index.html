@@ -360,24 +360,10 @@ ul, ol {
 }
 
 /* --------------------------------------------------------------------------
-   4. Loading Screen / Preloader
+   4. Loading Screen / Preloader (Disabled for Instant Load)
    -------------------------------------------------------------------------- */
 #loading-screen {
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-  background-color: var(--bg-primary);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  transition: opacity 0.5s ease, visibility 0.5s ease;
-}
-
-#loading-screen.hidden {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
+  display: none !important;
 }
 
 .loader-content {
@@ -1953,9 +1939,9 @@ ul, ol {
    18. Scroll Reveal Animations & Print Media
    -------------------------------------------------------------------------- */
 .reveal {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  opacity: 1 !important;
+  transform: none !important;
+  transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
 .reveal.active {
@@ -1989,22 +1975,7 @@ ul, ol {
 <body>
 
   <!-- ==========================================================================
-       1. Preloader Screen
-       ========================================================================== -->
-  <div id="loading-screen">
-    <div class="loader-content">
-      <div class="loader-logo">
-        <span>HS</span> Hema Saini
-      </div>
-      <div class="loader-bar"></div>
-      <p style="margin-top: 1rem; color: var(--text-muted); font-size: 0.9rem; font-weight: 500;">
-        Loading Portfolio...
-      </p>
-    </div>
-  </div>
-
-  <!-- ==========================================================================
-       2. Sticky Header & Navigation
+       Sticky Header & Navigation
        ========================================================================== -->
   <header class="header">
     <div class="container nav-container">
