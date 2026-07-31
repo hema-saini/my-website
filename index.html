@@ -1,0 +1,1195 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hema Saini | Computer Science Student | Learning Programming & Web Development</title>
+  <meta name="description" content="Personal portfolio website of Hema Saini, a Computer Science student currently learning programming and web development, with future goals in AI, Machine Learning, and Ethical Hacking." />
+  <meta name="keywords" content="Hema Saini, Computer Science Student, Python, C Programming, Git, GitHub, AI, Machine Learning, Cybersecurity, Ethical Hacking" />
+  <meta name="author" content="Hema Saini" />
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Hema Saini - Computer Science Student Portfolio" />
+  <meta property="og:description" content="Explore projects, skills, goals, and learning journey of Hema Saini, Computer Science student." />
+  <meta property="og:type" content="website" />
+
+  <!-- Google Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <!-- Lucide Static Icon Font -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lucide-static@0.321.0/font/lucide.min.css">
+  
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+
+  <!-- ==========================================================================
+       1. Preloader Screen
+       ========================================================================== -->
+  <div id="loading-screen">
+    <div class="loader-content">
+      <div class="loader-logo">
+        <span>HS</span> Hema Saini
+      </div>
+      <div class="loader-bar"></div>
+      <p style="margin-top: 1rem; color: var(--text-muted); font-size: 0.9rem; font-weight: 500;">
+        Loading Portfolio...
+      </p>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       2. Sticky Header & Navigation
+       ========================================================================== -->
+  <header class="header">
+    <div class="container nav-container">
+      <a href="#home" class="brand-logo" aria-label="Hema Saini Home">
+        <span class="brand-badge">HS</span>
+        <span>Hema Saini</span>
+      </a>
+
+      <nav class="nav-menu" id="nav-menu" aria-label="Main Navigation">
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#goals" class="nav-link">Goals</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#certificates" class="nav-link">Certificates</a>
+        <a href="#journey" class="nav-link">Journey</a>
+        <a href="#faq" class="nav-link">FAQ</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="nav-controls">
+        <button id="theme-toggle-btn" class="theme-toggle" aria-label="Toggle dark and light mode">
+          <i id="theme-icon" class="lucide-moon"></i>
+        </button>
+
+        <button class="btn btn-primary btn-sm btn-resume-header trigger-resume-modal">
+          <i class="lucide-file-text"></i> Resume
+        </button>
+
+        <button class="mobile-nav-toggle" id="mobile-nav-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+          <i class="lucide-menu"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ==========================================================================
+         3. Hero Section (Home)
+         ========================================================================== -->
+    <section id="home" class="hero-section">
+      <canvas id="hero-canvas" class="hero-bg-canvas"></canvas>
+
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-content">
+            <div class="hero-badge">
+              <span class="pulse-dot"></span> CS Student & Passionate Learner
+            </div>
+
+            <h1 class="hero-title">
+              Hi, I'm <span class="text-gradient">Hema Saini</span>
+            </h1>
+
+            <p class="hero-subtitle">
+              Computer Science Student | Aspiring AI/ML Engineer & Ethical Hacker
+            </p>
+
+            <p class="hero-motto">
+              I am a Computer Science student passionate about technology. I am currently learning programming and web development, with long-term goals to become an AI & Machine Learning Engineer and an Ethical Hacker.
+            </p>
+
+            <div class="hero-actions">
+              <a href="#projects" class="btn btn-primary btn-lg">
+                <i class="lucide-code-2"></i> View Projects
+              </a>
+              <a href="#contact" class="btn btn-secondary btn-lg">
+                <i class="lucide-mail"></i> Get In Touch
+              </a>
+              <button class="btn btn-outline btn-lg trigger-resume-modal">
+                <i class="lucide-download"></i> View CV
+              </button>
+            </div>
+
+            <div class="social-links">
+              <a href="https://github.com/hemasaini" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="GitHub Profile">
+                <i class="lucide-github"></i>
+              </a>
+              <a href="https://linkedin.com/in/hemasaini" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="LinkedIn Profile">
+                <i class="lucide-linkedin"></i>
+              </a>
+              <a href="mailto:hemasaini299@gmail.com" class="social-icon-btn" aria-label="Send Email">
+                <i class="lucide-mail"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Interactive Code Terminal Column -->
+          <div class="hero-visual">
+            <div class="code-terminal-card">
+              <div class="terminal-header">
+                <div class="terminal-dots">
+                  <span class="dot dot-red"></span>
+                  <span class="dot dot-yellow"></span>
+                  <span class="dot dot-green"></span>
+                </div>
+                <div class="terminal-title">hema_learning.py</div>
+                <div><i class="lucide-terminal" style="font-size: 0.9rem; color: #64748b;"></i></div>
+              </div>
+              <div class="terminal-body" id="terminal-code-body">
+                <!-- JavaScript typing code emulator renders here -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Animated Statistics Bar -->
+        <div class="hero-stats-wrapper" id="hero-stats">
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-number" data-target="100" data-suffix="%">0%</div>
+              <div class="stat-label">Dedication to Learning</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number" data-target="5" data-suffix=" Core">0 Core</div>
+              <div class="stat-label">Skills In Progress</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number" data-target="3" data-suffix=" Projects">0 Projects</div>
+              <div class="stat-label">Featured Projects</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number" data-target="2" data-suffix=" Key">0 Key</div>
+              <div class="stat-label">AI/ML & Ethical Hacking Goals</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         4. About Me Section
+         ========================================================================== -->
+    <section id="about" class="section">
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="section-badge"><i class="lucide-user"></i> About Me</div>
+          <h2 class="section-title">Computer Science Student & Continuous Learner</h2>
+          <p class="section-description">
+            Passionate about technology, programming, and web development with future aspirations in AI, Machine Learning, and Cybersecurity.
+          </p>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-avatar-card card reveal">
+            <div class="avatar-wrapper">
+              <div class="avatar-img">HS</div>
+            </div>
+
+            <h3 style="font-size: 1.35rem; font-weight: 800; margin-bottom: 0.25rem;">Hema Saini</h3>
+            <p style="color: var(--royal-blue); font-weight: 600; font-size: 0.92rem; margin-bottom: 1rem;">
+              Computer Science Student
+            </p>
+
+            <div class="about-meta">
+              <div class="meta-item">
+                <i class="lucide-graduation-cap"></i>
+                <span>Computer Science Student</span>
+              </div>
+              <div class="meta-item">
+                <i class="lucide-code-2"></i>
+                <span>Learning Programming & Web Dev</span>
+              </div>
+              <div class="meta-item">
+                <i class="lucide-mail"></i>
+                <span>hemasaini299@gmail.com</span>
+              </div>
+              <div class="meta-item">
+                <i class="lucide-briefcase"></i>
+                <span>Seeking Internship Opportunities</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="about-details reveal">
+            <h3 style="font-size: 1.85rem; font-weight: 700; margin-bottom: 1rem;" class="text-gradient">
+              Learning, Building, and Growing Every Day
+            </h3>
+
+            <p class="about-bio-text">
+              I am Hema Saini, a Computer Science student passionate about technology. I am currently learning programming and web development. My long-term goals are to become an AI & Machine Learning Engineer and an Ethical Hacker. I enjoy learning new technologies and building projects to improve my skills.
+            </p>
+
+            <div class="highlight-box">
+              <i class="lucide-sparkles" style="color: var(--royal-blue); margin-right: 0.5rem;"></i>
+              <strong>Learning Philosophy:</strong> "I enjoy learning new technologies every day and building practical projects to improve my skills and solve real-world problems."
+            </div>
+
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+              <a href="#contact" class="btn btn-primary"><i class="lucide-send"></i> Get In Touch</a>
+              <button class="btn btn-secondary trigger-resume-modal"><i class="lucide-file-text"></i> View CV</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         5. My Goals Section
+         ========================================================================== -->
+    <section id="goals" class="section" style="background-color: var(--bg-secondary);">
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="section-badge"><i class="lucide-target"></i> My Goals</div>
+          <h2 class="section-title">Future Objectives & Career Roadmap</h2>
+          <p class="section-description">
+            Clear goals guiding my daily studies as I build my foundations and work toward my future career.
+          </p>
+        </div>
+
+        <div class="goals-grid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));">
+          <!-- Goal 1 -->
+          <div class="goal-card card reveal">
+            <div>
+              <div class="goal-icon"><i class="lucide-brain"></i></div>
+              <div class="goal-timeline">Long-Term Goal</div>
+              <h3 class="goal-title">Become an AI & Machine Learning Engineer</h3>
+              <p class="goal-desc">
+                Master core machine learning algorithms, deep neural networks, and model deployment to design intelligent, automated systems.
+              </p>
+            </div>
+            <div>
+              <div style="display: flex; justify-content: space-between; font-size: 0.82rem; font-weight: 600; margin-bottom: 0.4rem;">
+                <span>Currently Learning</span>
+                <span style="color: var(--royal-blue);">In Progress</span>
+              </div>
+              <div class="goal-progress-bar">
+                <div class="goal-progress-fill" style="width: 50%;"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Goal 2 -->
+          <div class="goal-card card reveal">
+            <div>
+              <div class="goal-icon"><i class="lucide-shield-check"></i></div>
+              <div class="goal-timeline">Long-Term Goal</div>
+              <h3 class="goal-title">Become an Ethical Hacker</h3>
+              <p class="goal-desc">
+                Learn network security, vulnerability assessment, penetration testing, and ethical hacking principles to protect systems from cyber threats.
+              </p>
+            </div>
+            <div>
+              <div style="display: flex; justify-content: space-between; font-size: 0.82rem; font-weight: 600; margin-bottom: 0.4rem;">
+                <span>Currently Learning</span>
+                <span style="color: var(--royal-blue);">In Progress</span>
+              </div>
+              <div class="goal-progress-bar">
+                <div class="goal-progress-fill" style="width: 45%;"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Goal 3 -->
+          <div class="goal-card card reveal">
+            <div>
+              <div class="goal-icon"><i class="lucide-code-2"></i></div>
+              <div class="goal-timeline">Practical Focus</div>
+              <h3 class="goal-title">Build Real-World AI and Cybersecurity Projects</h3>
+              <p class="goal-desc">
+                Apply programming knowledge to construct functional AI applications and secure tools that solve real problems and enhance skills.
+              </p>
+            </div>
+            <div>
+              <div style="display: flex; justify-content: space-between; font-size: 0.82rem; font-weight: 600; margin-bottom: 0.4rem;">
+                <span>Active Objective</span>
+                <span style="color: var(--royal-blue);">In Progress</span>
+              </div>
+              <div class="goal-progress-bar">
+                <div class="goal-progress-fill" style="width: 60%;"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Goal 4 -->
+          <div class="goal-card card reveal">
+            <div>
+              <div class="goal-icon"><i class="lucide-briefcase"></i></div>
+              <div class="goal-timeline">Career Target</div>
+              <h3 class="goal-title">Get an Internship</h3>
+              <p class="goal-desc">
+                Gain hands-on industry experience by interning at a forward-thinking tech company, learning from senior engineers and real production environments.
+              </p>
+            </div>
+            <div>
+              <div style="display: flex; justify-content: space-between; font-size: 0.82rem; font-weight: 600; margin-bottom: 0.4rem;">
+                <span>Upcoming Goal</span>
+                <span style="color: var(--royal-blue);">Ready to Apply</span>
+              </div>
+              <div class="goal-progress-bar">
+                <div class="goal-progress-fill" style="width: 70%;"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Goal 5 -->
+          <div class="goal-card card reveal">
+            <div>
+              <div class="goal-icon"><i class="lucide-git-pull-request"></i></div>
+              <div class="goal-timeline">Community Contribution</div>
+              <h3 class="goal-title">Contribute to Open-Source Projects</h3>
+              <p class="goal-desc">
+                Collaborate with developer communities on GitHub by fixing bugs, improving documentation, and adding features to open-source software.
+              </p>
+            </div>
+            <div>
+              <div style="display: flex; justify-content: space-between; font-size: 0.82rem; font-weight: 600; margin-bottom: 0.4rem;">
+                <span>Active Learning</span>
+                <span style="color: var(--royal-blue);">In Progress</span>
+              </div>
+              <div class="goal-progress-bar">
+                <div class="goal-progress-fill" style="width: 40%;"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Goal 6 -->
+          <div class="goal-card card reveal">
+            <div>
+              <div class="goal-icon"><i class="lucide-sparkles"></i></div>
+              <div class="goal-timeline">Daily Habit</div>
+              <h3 class="goal-title">Keep Learning New Technologies Every Day</h3>
+              <p class="goal-desc">
+                Stay curious and maintain a disciplined daily learning routine across programming languages, web technologies, and security concepts.
+              </p>
+            </div>
+            <div>
+              <div style="display: flex; justify-content: space-between; font-size: 0.82rem; font-weight: 600; margin-bottom: 0.4rem;">
+                <span>Daily Practice</span>
+                <span style="color: var(--royal-blue);">Active</span>
+              </div>
+              <div class="goal-progress-bar">
+                <div class="goal-progress-fill" style="width: 90%;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         6. Skills Section
+         ========================================================================== -->
+    <section id="skills" class="section">
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="section-badge"><i class="lucide-layers"></i> Skills & Capabilities</div>
+          <h2 class="section-title">Current Skills & Learning Focus</h2>
+          <p class="section-description">
+            An accurate overview of my technical skills, core programming foundations, and current areas of learning.
+          </p>
+        </div>
+
+        <div class="skills-controls reveal">
+          <div class="skill-search-box">
+            <i class="lucide-search"></i>
+            <input type="text" id="skill-search-input" placeholder="Search skills (Python, C, Git, AI/ML, Cybersecurity)..." />
+          </div>
+
+          <div class="filter-tabs">
+            <button class="filter-btn skill-filter-btn active" data-filter="all">All Skills</button>
+            <button class="filter-btn skill-filter-btn" data-filter="lang">Programming</button>
+            <button class="filter-btn skill-filter-btn" data-filter="tools">Developer Tools</button>
+            <button class="filter-btn skill-filter-btn" data-filter="aiml">Future Specializations</button>
+          </div>
+        </div>
+
+        <div class="skills-grid" id="skills-container">
+          <!-- Python (Learning) -->
+          <div class="skill-card reveal" data-category="lang" data-tags="python programming learning code logic script">
+            <div class="skill-card-header">
+              <div class="skill-info">
+                <div class="skill-icon"><i class="lucide-code"></i></div>
+                <div class="skill-name">Python (Learning)</div>
+              </div>
+              <span class="skill-level-text">Learning Focus</span>
+            </div>
+            <div class="skill-bar-bg">
+              <div class="skill-bar-fill" style="width: 65%;"></div>
+            </div>
+            <div class="skill-tags">
+              <span class="tag">Basic Syntax</span>
+              <span class="tag">OOP Concepts</span>
+              <span class="tag">Data Handling</span>
+            </div>
+          </div>
+
+          <!-- C Programming -->
+          <div class="skill-card reveal" data-category="lang" data-tags="c programming memory pointers functions fundamentals">
+            <div class="skill-card-header">
+              <div class="skill-info">
+                <div class="skill-icon"><i class="lucide-binary"></i></div>
+                <div class="skill-name">C Programming</div>
+              </div>
+              <span class="skill-level-text">Core Foundation</span>
+            </div>
+            <div class="skill-bar-bg">
+              <div class="skill-bar-fill" style="width: 70%;"></div>
+            </div>
+            <div class="skill-tags">
+              <span class="tag">Pointers & Memory</span>
+              <span class="tag">Data Structures</span>
+              <span class="tag">Control Flow</span>
+            </div>
+          </div>
+
+          <!-- Git & GitHub (Learning) -->
+          <div class="skill-card reveal" data-category="tools" data-tags="git github version control commits branches learning">
+            <div class="skill-card-header">
+              <div class="skill-info">
+                <div class="skill-icon"><i class="lucide-git-branch"></i></div>
+                <div class="skill-name">Git & GitHub (Learning)</div>
+              </div>
+              <span class="skill-level-text">Learning Focus</span>
+            </div>
+            <div class="skill-bar-bg">
+              <div class="skill-bar-fill" style="width: 60%;"></div>
+            </div>
+            <div class="skill-tags">
+              <span class="tag">Repository Management</span>
+              <span class="tag">Version Control</span>
+              <span class="tag">Open Source Basics</span>
+            </div>
+          </div>
+
+          <!-- AI & Machine Learning (Currently Learning) -->
+          <div class="skill-card reveal" data-category="aiml" data-tags="ai machine learning neural networks datasets algorithms learning">
+            <div class="skill-card-header">
+              <div class="skill-info">
+                <div class="skill-icon"><i class="lucide-brain"></i></div>
+                <div class="skill-name">AI & Machine Learning (Currently Learning)</div>
+              </div>
+              <span class="skill-level-text">Currently Learning</span>
+            </div>
+            <div class="skill-bar-bg">
+              <div class="skill-bar-fill" style="width: 45%;"></div>
+            </div>
+            <div class="skill-tags">
+              <span class="tag">ML Fundamentals</span>
+              <span class="tag">Supervised Learning</span>
+              <span class="tag">Data Preprocessing</span>
+            </div>
+          </div>
+
+          <!-- Cybersecurity & Ethical Hacking (Currently Learning) -->
+          <div class="skill-card reveal" data-category="aiml" data-tags="cybersecurity ethical hacking security networking pentesting learning">
+            <div class="skill-card-header">
+              <div class="skill-info">
+                <div class="skill-icon"><i class="lucide-shield"></i></div>
+                <div class="skill-name">Cybersecurity & Ethical Hacking (Currently Learning)</div>
+              </div>
+              <span class="skill-level-text">Currently Learning</span>
+            </div>
+            <div class="skill-bar-bg">
+              <div class="skill-bar-fill" style="width: 40%;"></div>
+            </div>
+            <div class="skill-tags">
+              <span class="tag">Network Basics</span>
+              <span class="tag">Security Concepts</span>
+              <span class="tag">Web Safety</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         7. Projects Section
+         ========================================================================== -->
+    <section id="projects" class="section" style="background-color: var(--bg-secondary);">
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="section-badge"><i class="lucide-folder-git-2"></i> Portfolio Projects</div>
+          <h2 class="section-title">Featured Student Projects</h2>
+          <p class="section-description">
+            Practical applications built to strengthen my programming skills, web development knowledge, and technical foundations.
+          </p>
+        </div>
+
+        <div class="skills-controls reveal">
+          <div class="filter-tabs">
+            <button class="filter-btn project-filter-btn active" data-filter="all">All Projects</button>
+            <button class="filter-btn project-filter-btn" data-filter="python">Python</button>
+            <button class="filter-btn project-filter-btn" data-filter="web">Web Dev</button>
+            <button class="filter-btn project-filter-btn" data-filter="upcoming">Upcoming</button>
+          </div>
+        </div>
+
+        <div class="projects-grid">
+          <!-- Project 1: Student Report Card (Python) -->
+          <div class="project-card reveal" data-category="python">
+            <div class="project-image-box" style="background: linear-gradient(135deg, #0f172a, #2563eb);">
+              <i class="lucide-file-text"></i>
+              <span class="project-category-badge">Python Application</span>
+            </div>
+            <div class="project-content">
+              <div>
+                <h3 class="project-title">Student Report Card (Python)</h3>
+                <p class="project-desc">
+                  A console-based Python program designed to manage student academic records, store marks, compute total percentage and grade, and display formatted report cards.
+                </p>
+                <div class="project-tech-stack">
+                  <span class="tag tag-primary">Python</span>
+                  <span class="tag">Control Flow</span>
+                  <span class="tag">Functions</span>
+                  <span class="tag">File Handling</span>
+                </div>
+              </div>
+              <div class="project-actions">
+                <button class="btn btn-primary btn-sm trigger-case-study" data-project="student-report-card">
+                  <i class="lucide-book-open"></i> Project Details
+                </button>
+                <a href="#" class="btn btn-secondary btn-sm" aria-label="GitHub Repo">
+                  <i class="lucide-github"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 2: Personal Portfolio Website -->
+          <div class="project-card reveal" data-category="web">
+            <div class="project-image-box" style="background: linear-gradient(135deg, #1e293b, #1d4ed8);">
+              <i class="lucide-globe"></i>
+              <span class="project-category-badge">Web Development</span>
+            </div>
+            <div class="project-content">
+              <div>
+                <h3 class="project-title">Personal Portfolio Website</h3>
+                <p class="project-desc">
+                  A modern, responsive personal portfolio website crafted to showcase my current learning journey, skills in Python, C, Git, and goals in AI/ML and Cybersecurity.
+                </p>
+                <div class="project-tech-stack">
+                  <span class="tag tag-primary">HTML5</span>
+                  <span class="tag">CSS3</span>
+                  <span class="tag">JavaScript</span>
+                  <span class="tag">Responsive UI</span>
+                </div>
+              </div>
+              <div class="project-actions">
+                <button class="btn btn-primary btn-sm trigger-case-study" data-project="portfolio-website">
+                  <i class="lucide-book-open"></i> Project Details
+                </button>
+                <a href="#" class="btn btn-secondary btn-sm" aria-label="GitHub Repo">
+                  <i class="lucide-github"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 3: More Projects Coming Soon -->
+          <div class="project-card reveal" data-category="upcoming">
+            <div class="project-image-box" style="background: linear-gradient(135deg, #0a1628, #312e81);">
+              <i class="lucide-sparkles"></i>
+              <span class="project-category-badge">In Development</span>
+            </div>
+            <div class="project-content">
+              <div>
+                <h3 class="project-title">More Projects Coming Soon</h3>
+                <p class="project-desc">
+                  Currently learning and working on new projects combining Artificial Intelligence, Machine Learning basics, and Cybersecurity principles. Stay tuned!
+                </p>
+                <div class="project-tech-stack">
+                  <span class="tag tag-primary">AI & ML</span>
+                  <span class="tag">Cybersecurity</span>
+                  <span class="tag">Python</span>
+                  <span class="tag">Open Source</span>
+                </div>
+              </div>
+              <div class="project-actions">
+                <button class="btn btn-primary btn-sm trigger-case-study" data-project="upcoming-projects">
+                  <i class="lucide-info"></i> View Roadmap
+                </button>
+                <a href="#" class="btn btn-secondary btn-sm" aria-label="GitHub Profile">
+                  <i class="lucide-github"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         8. Certificates Section
+         ========================================================================== -->
+    <section id="certificates" class="section">
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="section-badge"><i class="lucide-award"></i> Coursework & Certifications</div>
+          <h2 class="section-title">Certifications & Learning Badges</h2>
+          <p class="section-description">
+            Online courses and certifications completed to build foundations in programming, web development, and computer science.
+          </p>
+        </div>
+
+        <div class="cert-grid">
+          <!-- Cert 1 -->
+          <div class="cert-card card reveal">
+            <div>
+              <div class="cert-header">
+                <div class="cert-icon-badge"><i class="lucide-code"></i></div>
+                <div>
+                  <h3 class="cert-title">Python Programming Foundations</h3>
+                  <p class="cert-issuer">Online Learning Platform</p>
+                  <p class="cert-date">Completed 2025</p>
+                </div>
+              </div>
+              <div class="cert-skills">
+                <span class="tag">Python Syntax</span>
+                <span class="tag">OOP Fundamentals</span>
+                <span class="tag">Logic Building</span>
+              </div>
+            </div>
+            <a href="https://github.com/hemasaini" target="_blank" class="btn btn-outline btn-sm" style="width: 100%; justify-content: center;">
+              <i class="lucide-external-link"></i> View Learning Record
+            </a>
+          </div>
+
+          <!-- Cert 2 -->
+          <div class="cert-card card reveal">
+            <div>
+              <div class="cert-header">
+                <div class="cert-icon-badge"><i class="lucide-globe"></i></div>
+                <div>
+                  <h3 class="cert-title">Web Development Fundamentals</h3>
+                  <p class="cert-issuer">Online Learning Platform</p>
+                  <p class="cert-date">Completed 2025</p>
+                </div>
+              </div>
+              <div class="cert-skills">
+                <span class="tag">HTML5 & CSS3</span>
+                <span class="tag">JavaScript Basics</span>
+                <span class="tag">Responsive Web Design</span>
+              </div>
+            </div>
+            <a href="https://github.com/hemasaini" target="_blank" class="btn btn-outline btn-sm" style="width: 100%; justify-content: center;">
+              <i class="lucide-external-link"></i> View Learning Record
+            </a>
+          </div>
+
+          <!-- Cert 3 -->
+          <div class="cert-card card reveal">
+            <div>
+              <div class="cert-header">
+                <div class="cert-icon-badge"><i class="lucide-git-branch"></i></div>
+                <div>
+                  <h3 class="cert-title">Git & Version Control Essentials</h3>
+                  <p class="cert-issuer">GitHub Learning Labs</p>
+                  <p class="cert-date">Completed 2025</p>
+                </div>
+              </div>
+              <div class="cert-skills">
+                <span class="tag">Git Commands</span>
+                <span class="tag">GitHub Repos</span>
+                <span class="tag">Branching & Merging</span>
+              </div>
+            </div>
+            <a href="https://github.com/hemasaini" target="_blank" class="btn btn-outline btn-sm" style="width: 100%; justify-content: center;">
+              <i class="lucide-external-link"></i> View Learning Record
+            </a>
+          </div>
+
+          <!-- Cert 4 -->
+          <div class="cert-card card reveal">
+            <div>
+              <div class="cert-header">
+                <div class="cert-icon-badge"><i class="lucide-brain"></i></div>
+                <div>
+                  <h3 class="cert-title">Introduction to AI & Cybersecurity</h3>
+                  <p class="cert-issuer">Self-Paced / In Progress</p>
+                  <p class="cert-date">Currently Learning</p>
+                </div>
+              </div>
+              <div class="cert-skills">
+                <span class="tag">AI Concepts</span>
+                <span class="tag">Ethical Hacking Basics</span>
+                <span class="tag">Security Principles</span>
+              </div>
+            </div>
+            <a href="https://github.com/hemasaini" target="_blank" class="btn btn-outline btn-sm" style="width: 100%; justify-content: center;">
+              <i class="lucide-external-link"></i> View Learning Record
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         9. Learning Journey (Interactive Timeline)
+         ========================================================================== -->
+    <section id="journey" class="section" style="background-color: var(--bg-secondary);">
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="section-badge"><i class="lucide-git-commit"></i> Learning Roadmap</div>
+          <h2 class="section-title">My Learning Journey</h2>
+          <p class="section-description">
+            A chronological timeline highlighting my progress in computer science, coding, and technology.
+          </p>
+        </div>
+
+        <div class="timeline-container">
+          <!-- Item 1 (Present) -->
+          <div class="timeline-item reveal">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <span class="timeline-year">Present</span>
+              <h3 class="timeline-title">Deep Dive into AI & Machine Learning</h3>
+              <p class="timeline-institution">Self-Study & Practical Projects</p>
+              <p class="timeline-desc">
+                Currently focusing all self-study efforts on artificial intelligence and machine learning principles and ethical hacking. Learning Python and working through introductory ML projects.
+              </p>
+            </div>
+          </div>
+
+          <!-- Item 2 (2025 - Start) -->
+          <div class="timeline-item reveal">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <span class="timeline-year">2025</span>
+              <h3 class="timeline-title">Started Computer Science Degree</h3>
+              <p class="timeline-institution">Academic Foundations</p>
+              <p class="timeline-desc">
+                Began my academic journey in computer science, focusing on programming fundamentals, math, and logical reasoning.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         10. Blog Section
+         ========================================================================== -->
+    <section id="blog" class="section">
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="section-badge"><i class="lucide-newspaper"></i> Technical Articles</div>
+          <h2 class="section-title">Latest Articles & AI Insights</h2>
+          <p class="section-description">
+            Sharing knowledge on deep learning theory, practical computer vision guides, and ethical AI development.
+          </p>
+        </div>
+
+        <div class="blog-grid">
+          <!-- Article 1 -->
+          <div class="blog-card reveal">
+            <div>
+              <div class="blog-meta">
+                <span><i class="lucide-calendar"></i> July 15, 2026</span>
+                <span><i class="lucide-clock"></i> 6 min read</span>
+              </div>
+              <h3 class="blog-title">Understanding Attention Mechanisms & The Transformer Architecture</h3>
+              <p class="blog-excerpt">
+                A mathematical and intuitive breakdown of Scaled Dot-Product Self-Attention and how Query-Key-Value matrices power modern LLMs.
+              </p>
+            </div>
+            <button class="btn btn-outline btn-sm trigger-article-reader" data-article="transformer-arch" style="width: 100%; justify-content: center; margin-top: 1rem;">
+              <i class="lucide-book-open"></i> Read Full Article
+            </button>
+          </div>
+
+          <!-- Article 2 -->
+          <div class="blog-card reveal">
+            <div>
+              <div class="blog-meta">
+                <span><i class="lucide-calendar"></i> June 28, 2026</span>
+                <span><i class="lucide-clock"></i> 8 min read</span>
+              </div>
+              <h3 class="blog-title">How to Build and Train Your First CNN from Scratch</h3>
+              <p class="blog-excerpt">
+                Step-by-step PyTorch guide covering convolutional filters, spatial pooling downsampling, and data augmentation techniques.
+              </p>
+            </div>
+            <button class="btn btn-outline btn-sm trigger-article-reader" data-article="cnn-from-scratch" style="width: 100%; justify-content: center; margin-top: 1rem;">
+              <i class="lucide-book-open"></i> Read Full Article
+            </button>
+          </div>
+
+          <!-- Article 3 -->
+          <div class="blog-card reveal">
+            <div>
+              <div class="blog-meta">
+                <span><i class="lucide-calendar"></i> May 10, 2026</span>
+                <span><i class="lucide-clock"></i> 5 min read</span>
+              </div>
+              <h3 class="blog-title">Ethics and Bias in Machine Learning Systems</h3>
+              <p class="blog-excerpt">
+                Exploring statistical audit metrics like Demographic Parity and SHAP explainability techniques to prevent algorithmic bias.
+              </p>
+            </div>
+            <button class="btn btn-outline btn-sm trigger-article-reader" data-article="ai-ethics" style="width: 100%; justify-content: center; margin-top: 1rem;">
+              <i class="lucide-book-open"></i> Read Full Article
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         11. FAQ Section
+         ========================================================================== -->
+    <section class="section" style="background-color: var(--bg-secondary);">
+      <div class="container">
+        <!-- FAQ Accordion -->
+        <div id="faq">
+          <div class="section-header reveal">
+            <div class="section-badge"><i class="lucide-help-circle"></i> FAQ</div>
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <p class="section-description">
+              Quick answers for recruiters, research leads, and potential collaborators.
+            </p>
+          </div>
+
+          <div class="faq-list reveal">
+            <div class="faq-item">
+              <button class="faq-question">
+                <span>What roles is Hema currently open to accepting?</span>
+                <i class="lucide-chevron-down faq-icon"></i>
+              </button>
+              <div class="faq-answer">
+                Hema is actively seeking Summer 2026 Machine Learning Engineer Internships, AI Research Internships, and Software Engineering Roles focusing on Artificial Intelligence and Computer Vision.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question">
+                <span>Is Hema willing to relocate or work remotely?</span>
+                <i class="lucide-chevron-down faq-icon"></i>
+              </button>
+              <div class="faq-answer">
+                Yes! Hema is open to both on-site relocation across major technology hubs as well as hybrid or remote internship arrangements.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question">
+                <span>What are Hema's primary programming tools and frameworks?</span>
+                <i class="lucide-chevron-down faq-icon"></i>
+              </button>
+              <div class="faq-answer">
+                Hema's core daily stack includes Python, PyTorch, TensorFlow, Scikit-Learn, OpenCV, C++, SQL/PostgreSQL, Git, Docker, and React.js.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question">
+                <span>How can recruiters schedule an interview or request official transcripts?</span>
+                <i class="lucide-chevron-down faq-icon"></i>
+              </button>
+              <div class="faq-answer">
+                You can reach Hema directly via email at <strong style="color:var(--royal-blue)">hemasaini299@gmail.com</strong> or fill out the contact form below for a rapid response within 24 hours.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         12. Contact Section
+         ========================================================================== -->
+    <section id="contact" class="section">
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="section-badge"><i class="lucide-mail"></i> Get In Touch</div>
+          <h2 class="section-title">Let's Build Something Extraordinary Together</h2>
+          <p class="section-description">
+            Whether you have an internship opportunity, a research project, or technical questions, I would love to connect!
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-info-card reveal">
+            <h3 style="font-size: 1.5rem; font-weight: 800; margin-bottom: 0.5rem;" class="text-gradient">
+              Contact Details
+            </h3>
+            <p style="color: var(--text-muted); line-height: 1.6;">
+              Feel free to reach out directly via email or connect with me across professional platforms.
+            </p>
+
+            <div class="contact-detail-list">
+              <div class="contact-detail-item">
+                <div class="contact-detail-icon"><i class="lucide-mail"></i></div>
+                <div>
+                  <div class="contact-detail-title">Direct Email</div>
+                  <div class="contact-detail-value">hemasaini299@gmail.com</div>
+                </div>
+              </div>
+
+              <div class="contact-detail-item">
+                <div class="contact-detail-icon"><i class="lucide-map-pin"></i></div>
+                <div>
+                  <div class="contact-detail-title">Location</div>
+                  <div class="contact-detail-value">Delhi NCR / Tech Campus • Open to Relocate</div>
+                </div>
+              </div>
+
+              <div class="contact-detail-item">
+                <div class="contact-detail-icon"><i class="lucide-clock"></i></div>
+                <div>
+                  <div class="contact-detail-title">Response Time</div>
+                  <div class="contact-detail-value">Usually within 24 Hours</div>
+                </div>
+              </div>
+            </div>
+
+            <button id="copy-email-btn" class="btn btn-secondary" style="width: 100%; justify-content: center; margin-bottom: 1.5rem;">
+              <i class="lucide-copy"></i> Copy Email Address
+            </button>
+
+            <div style="padding-top: 1rem; border-top: 1px solid var(--border-color);">
+              <div style="font-size: 0.85rem; font-weight: 700; text-transform: uppercase; color: var(--text-light); margin-bottom: 0.75rem;">
+                Connect on Social Platforms
+              </div>
+              <div class="social-links">
+                <a href="https://github.com/hemasaini" target="_blank" rel="noopener noreferrer" class="social-icon-btn"><i class="lucide-github"></i></a>
+                <a href="https://linkedin.com/in/hemasaini" target="_blank" rel="noopener noreferrer" class="social-icon-btn"><i class="lucide-linkedin"></i></a>
+                <a href="https://kaggle.com/hemasaini" target="_blank" rel="noopener noreferrer" class="social-icon-btn"><i class="lucide-brain"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Form -->
+          <div class="contact-form-card reveal">
+            <h3 style="font-size: 1.5rem; font-weight: 800; margin-bottom: 1.25rem;">
+              Send Me a Direct Message
+            </h3>
+
+            <div id="form-success-toast" class="form-success-toast">
+              <i class="lucide-check-circle2" style="margin-right: 0.5rem; vertical-align: middle;"></i>
+              Thank you! Your message has been validated and sent successfully. Hema will reply shortly.
+            </div>
+
+            <form id="contact-form" novalidate>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                <div class="form-group">
+                  <label for="contact-name" class="form-label">Your Full Name *</label>
+                  <input type="text" id="contact-name" class="form-control" placeholder="e.g., Sarah Jenkins" required />
+                  <div class="form-error">Please enter your name</div>
+                </div>
+
+                <div class="form-group">
+                  <label for="contact-email" class="form-label">Email Address *</label>
+                  <input type="email" id="contact-email" class="form-control" placeholder="s.jenkins@company.com" required />
+                  <div class="form-error">Please enter a valid email</div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="contact-subject" class="form-label">Subject *</label>
+                <input type="text" id="contact-subject" class="form-control" placeholder="e.g., AI Engineering Internship Opportunity" required />
+                <div class="form-error">Please enter a subject</div>
+              </div>
+
+              <div class="form-group">
+                <label for="contact-purpose" class="form-label">Inquiry Purpose</label>
+                <select id="contact-purpose" class="form-control">
+                  <option value="internship">Internship Opportunity</option>
+                  <option value="collaboration">Research Collaboration</option>
+                  <option value="recruitment">Full-time Recruitment</option>
+                  <option value="general">General Query</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="contact-message" class="form-label">Message *</label>
+                <textarea id="contact-message" class="form-control" rows="5" placeholder="Share details about the role, project, or inquiry..." required></textarea>
+                <div class="form-error">Message must be at least 10 characters</div>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-lg" style="width: 100%; justify-content: center;">
+                <i class="lucide-send"></i> Send Message
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================================================
+       13. Footer
+       ========================================================================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand-title">
+            <span class="brand-badge" style="display: inline-flex; width: 32px; height: 32px; font-size: 0.85rem; margin-right: 0.5rem; vertical-align: middle;">HS</span>
+            Hema Saini
+          </div>
+          <p class="footer-brand-desc">
+            Computer Science Student currently learning programming and web development, with future goals in AI/ML engineering and Ethical Hacking.
+          </p>
+          <div class="social-links">
+            <a href="https://github.com/hemasaini" target="_blank" class="social-icon-btn" aria-label="GitHub"><i class="lucide-github"></i></a>
+            <a href="https://linkedin.com/in/hemasaini" target="_blank" class="social-icon-btn" aria-label="LinkedIn"><i class="lucide-linkedin"></i></a>
+            <a href="https://kaggle.com/hemasaini" target="_blank" class="social-icon-btn" aria-label="Kaggle"><i class="lucide-brain"></i></a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Navigation</div>
+          <div class="footer-links">
+            <a href="#home" class="footer-link">Home</a>
+            <a href="#about" class="footer-link">About Me</a>
+            <a href="#goals" class="footer-link">My Goals</a>
+            <a href="#skills" class="footer-link">Skills</a>
+            <a href="#projects" class="footer-link">Projects</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Explore</div>
+          <div class="footer-links">
+            <a href="#certificates" class="footer-link">Certificates</a>
+            <a href="#journey" class="footer-link">Learning Journey</a>
+            <a href="#blog" class="footer-link">Blog Articles</a>
+            <a href="#faq" class="footer-link">FAQ</a>
+            <a href="#contact" class="footer-link">Contact Me</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Quick Actions</div>
+          <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 1rem;">
+            Download formatted CV or copy direct contact details.
+          </p>
+          <button class="btn btn-primary btn-sm trigger-resume-modal" style="width: 100%; justify-content: center; margin-bottom: 0.75rem;">
+            <i class="lucide-download"></i> Download Resume
+          </button>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          © 2026 Hema Saini. Designed & Engineered with precision.
+        </div>
+        <div>
+          Built with HTML5, CSS3 & Vanilla JavaScript.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <button id="back-to-top" class="back-to-top" aria-label="Back to Top">
+    <i class="lucide-arrow-up"></i>
+  </button>
+
+  <!-- ==========================================================================
+       14. Modals (Resume, Case Study, Article Reader)
+       ========================================================================== -->
+  <!-- Resume Modal -->
+  <div id="resume-modal" class="modal-overlay">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h3 class="modal-title"><i class="lucide-file-text" style="color:var(--royal-blue); margin-right:0.5rem;"></i> Curriculum Vitae - Hema Saini</h3>
+        <button class="modal-close-btn" aria-label="Close Modal"><i class="lucide-x"></i></button>
+      </div>
+      <div class="modal-body">
+        <div style="text-align: right; margin-bottom: 1.5rem;">
+          <button class="btn btn-primary btn-sm" onclick="window.print()"><i class="lucide-printer"></i> Print / Save PDF</button>
+        </div>
+
+        <div style="padding: 1rem; background-color: var(--bg-primary); border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+          <!-- Resume Content Preview -->
+          <div style="border-bottom: 2px solid var(--royal-blue); padding-bottom: 1rem; margin-bottom: 1.5rem;">
+            <h2 style="font-size: 1.8rem; font-weight: 800; color: var(--text-main);">HEMA SAINI</h2>
+            <p style="color: var(--royal-blue); font-weight: 700;">Computer Science Student | Aspiring AI/ML Engineer & Ethical Hacker</p>
+            <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 0.5rem;">
+              Email: hemasaini299@gmail.com | Portfolio: hemasaini.dev | GitHub: github.com/hemasaini | LinkedIn: linkedin.com/in/hemasaini
+            </p>
+          </div>
+
+          <div style="margin-bottom: 1.5rem;">
+            <h3 style="font-size: 1.1rem; font-weight: 700; color: var(--royal-blue); margin-bottom: 0.5rem;">SUMMARY</h3>
+            <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">
+              Computer Science student passionate about technology, currently learning programming and web development. Focused on building foundations in Python, C, Git, AI/ML, and Ethical Hacking to create impactful real-world software solutions.
+            </p>
+          </div>
+
+          <div style="margin-bottom: 1.5rem;">
+            <h3 style="font-size: 1.1rem; font-weight: 700; color: var(--royal-blue); margin-bottom: 0.5rem;">EDUCATION</h3>
+            <p style="font-weight: 700;">Bachelor of Technology (B.Tech) in Computer Science & Engineering</p>
+            <p style="font-size: 0.9rem; color: var(--text-muted);">Status: Currently Enrolled</p>
+            <p style="font-size: 0.9rem; color: var(--text-muted);">Coursework: Programming in C & Python, Web Development, Computer Organization, Mathematics, Data Structures & Algorithms.</p>
+          </div>
+
+          <div style="margin-bottom: 1.5rem;">
+            <h3 style="font-size: 1.1rem; font-weight: 700; color: var(--royal-blue); margin-bottom: 0.5rem;">SKILLS & LEARNING FOCUS</h3>
+            <ul style="list-style: disc; padding-left: 1.25rem; font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">
+              <li><strong>Programming:</strong> Python (Learning), C Programming</li>
+              <li><strong>Tools & Version Control:</strong> Git & GitHub (Learning)</li>
+              <li><strong>Domains in Progress:</strong> AI & Machine Learning (Currently Learning), Cybersecurity & Ethical Hacking (Currently Learning)</li>
+              <li><strong>Web Basics:</strong> HTML5, CSS3, JavaScript Basics</li>
+            </ul>
+          </div>
+
+          <div style="margin-bottom: 1.5rem;">
+            <h3 style="font-size: 1.1rem; font-weight: 700; color: var(--royal-blue); margin-bottom: 0.5rem;">PROJECTS</h3>
+            <div style="margin-bottom: 0.75rem;">
+              <p style="font-weight: 700;">Student Report Card (Python)</p>
+              <p style="font-size: 0.88rem; color: var(--text-muted);">A Python console application that automates student mark processing, percentage calculation, and report generation.</p>
+            </div>
+            <div style="margin-bottom: 0.75rem;">
+              <p style="font-weight: 700;">Personal Portfolio Website</p>
+              <p style="font-size: 0.88rem; color: var(--text-muted);">A responsive personal website built using HTML, CSS, and JavaScript to present skills, goals, and learning progress.</p>
+            </div>
+          </div>
+
+          <div>
+            <h3 style="font-size: 1.1rem; font-weight: 700; color: var(--royal-blue); margin-bottom: 0.5rem;">FUTURE GOALS</h3>
+            <p style="font-size: 0.9rem; color: var(--text-muted);">Become an AI & Machine Learning Engineer • Become an Ethical Hacker • Build real-world AI & Cybersecurity projects • Secure an Internship • Contribute to Open Source</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Case Study Modal -->
+  <div id="case-study-modal" class="modal-overlay">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h3 class="modal-title" id="case-study-title">Project Case Study</h3>
+        <button class="modal-close-btn" aria-label="Close Modal"><i class="lucide-x"></i></button>
+      </div>
+      <div class="modal-body" id="case-study-body">
+        <!-- Rendered by script.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Article Reader Modal -->
+  <div id="article-modal" class="modal-overlay">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h3 class="modal-title" id="article-title">Article Reader</h3>
+        <button class="modal-close-btn" aria-label="Close Modal"><i class="lucide-x"></i></button>
+      </div>
+      <div class="modal-body" id="article-body">
+        <!-- Rendered by script.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Main JavaScript File -->
+  <script type="module" src="/script.js"></script>
+</body>
+</html>
