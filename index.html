@@ -3122,7 +3122,616 @@ ul, ol {
     </div>
   </div>
 
-  <!-- Main JavaScript File -->
-  <script type="module" src="/script.js"></script>
+  <!-- Main JavaScript Embedded Directly -->
+  <script>
+    /**
+     * Hema Saini - Personal Portfolio Complete JavaScript Engine
+     */
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Dark Mode / Theme Toggle
+      const themeToggleBtn = document.getElementById('theme-toggle-btn');
+      const themeIcon = document.getElementById('theme-icon');
+
+      const currentTheme = localStorage.getItem('theme') || 'light';
+      if (currentTheme === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        if (themeIcon) themeIcon.className = 'lucide-sun';
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+        if (themeIcon) themeIcon.className = 'lucide-moon';
+      }
+
+      if (themeToggleBtn) {
+        themeToggleBtn.addEventListener('click', () => {
+          const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+          if (isDark) {
+            document.documentElement.setAttribute('data-theme', 'light');
+            localStorage.setItem('theme', 'light');
+            if (themeIcon) themeIcon.className = 'lucide-moon';
+          } else {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            localStorage.setItem('theme', 'dark');
+            if (themeIcon) themeIcon.className = 'lucide-sun';
+          }
+        });
+      }
+
+      // 2. Mobile Drawer Navigation
+      const navToggleBtn = document.getElementById('mobile-nav-toggle');
+      const navMenu = document.getElementById('nav-menu');
+      const navLinks = document.querySelectorAll('.nav-link');
+
+      if (navToggleBtn && navMenu) {
+        navToggleBtn.addEventListener('click', () => {
+          navMenu.classList.toggle('active');
+          const isExpanded = navMenu.classList.contains('active');
+          navToggleBtn.setAttribute('aria-expanded', isExpanded);
+        });
+
+        navLinks.forEach(link => {
+          link.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+          });
+        });
+      }
+
+      // 3. Header Shadow & Active Link Spy on Scroll
+      const header = document.querySelector('.header');
+      const sections = document.querySelectorAll('section[id]');
+      const backToTopBtn = document.getElementById('back-to-top');
+
+      window.addEventListener('scroll', () => {
+        const scrollY = window.scrollY;
+
+        if (header) {
+          if (scrollY > 50) {
+            header.classList.add('scrolled');
+          } else {
+            header.classList.remove('scrolled');
+          }
+        }
+
+        if (backToTopBtn) {
+          if (scrollY > 400) {
+            backToTopBtn.classList.add('visible');
+          } else {
+            backToTopBtn.classList.remove('visible');
+          }
+        }
+
+        sections.forEach(current => {
+          const sectionHeight = current.offsetHeight;
+          const sectionTop = current.offsetTop - 120;
+          const sectionId = current.getAttribute('id');
+          const navLink = document.querySelector(`.nav-link[href*="${sectionId}"]`);
+
+          if (navLink) {
+            if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+              navLink.classList.add('active');
+            } else {
+              navLink.classList.remove('active');
+            }
+          }
+        });
+      });
+
+      if (backToTopBtn) {
+        backToTopBtn.addEventListener('click', () => {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      }
+
+      // 4. Scroll Reveal
+      const revealElements = document.querySelectorAll('.reveal');
+      revealElements.forEach(el => el.classList.add('active'));
+
+      // 5. Hero AI Interactive Canvas
+      const canvas = document.getElementById('hero-canvas');
+      if (canvas) {
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        let width = (canvas.width = canvas.offsetWidth);
+        let height = (canvas.height = canvas.offsetHeight);
+
+        window.addEventListener('resize', () => {
+          width = canvas.width = canvas.offsetWidth;
+          height = canvas.height = canvas.offsetHeight;
+        });
+
+        class Particle {
+          constructor() {
+            this.x = Math.random() * width;
+            this.y = Math.random() * height;
+            this.vx = (Math.random() - 0.5) * 0.8;
+            this.vy = (Math.random() - 0.5) * 0.8;
+            this.radius = Math.random() * 2 + 1;
+          }
+
+          update() {
+            this.x += this.vx;
+            this.y += this.vy;
+
+            if (this.x < 0 || this.x > width) this.vx *= -1;
+            if (this.y < 0 || this.y > height) this.vy *= -1;
+          }
+
+          draw() {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+            const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+            ctx.fillStyle = isDark ? 'rgba(96, 165, 250, 0.6)' : 'rgba(29, 78, 216, 0.4)';
+            ctx.fill();
+          }
+        }
+
+        const particleCount = Math.min(Math.floor(width / 20), 45);
+        for (let i = 0; i < particleCount; i++) {
+          particles.push(new Particle());
+        }
+
+        function animate() {
+          ctx.clearRect(0, 0, width, height);
+          const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+          const strokeStyle = isDark ? 'rgba(96, 165, 250, 0.08)' : 'rgba(29, 78, 216, 0.06)';
+
+          for (let i = 0; i < particles.length; i++) {
+            particles[i].update();
+            particles[i].draw();
+
+            for (let j = i + 1; j < particles.length; j++) {
+              const dx = particles[i].x - particles[j].x;
+              const dy = particles[i].y - particles[j].y;
+              const dist = Math.sqrt(dx * dx + dy * dy);
+
+              if (dist < 120) {
+                ctx.beginPath();
+                ctx.moveTo(particles[i].x, particles[i].y);
+                ctx.lineTo(particles[j].x, particles[j].y);
+                ctx.strokeStyle = strokeStyle;
+                ctx.lineWidth = 1;
+                ctx.stroke();
+              }
+            }
+          }
+          requestAnimationFrame(animate);
+        }
+        animate();
+      }
+
+      // 6. Terminal Emulator
+      const codeTerminalEl = document.getElementById('terminal-code-body');
+      if (codeTerminalEl) {
+        const codeSnippets = [
+          `<span class="code-comment"># Student Report Card Management in Python</span>\n<span class="code-keyword">def</span> <span class="code-func">calculate_grade</span>(percentage):\n    <span class="code-keyword">if</span> percentage >= 90:\n        <span class="code-keyword">return</span> <span class="code-string">'A+'</span>\n    <span class="code-keyword">elif</span> percentage >= 80:\n        <span class="code-keyword">return</span> <span class="code-string">'A'</span>\n    <span class="code-keyword">elif</span> percentage >= 70:\n        <span class="code-keyword">return</span> <span class="code-string">'B'</span>\n    <span class="code-keyword">return</span> <span class="code-string">'C'</span>`,
+
+          `<span class="code-comment">/* Fundamental C Programming - Memory & Pointers */</span>\n<span class="code-keyword">#include</span> &lt;stdio.h&gt;\n\n<span class="code-keyword">int</span> <span class="code-func">main</span>() {\n    <span class="code-keyword">int</span> student_id = 101;\n    <span class="code-keyword">int</span> *ptr = &student_id;\n    printf(<span class="code-string">"Student ID: %d at %p\\n"</span>, *ptr, ptr);\n    <span class="code-keyword">return</span> 0;\n}`,
+
+          `<span class="code-comment"># Git & Open Source Learning Journey</span>\n$ git checkout -b feature/report-card\n$ git add .\n$ git commit -m <span class="code-string">"Add student grade calculation logic"</span>\n$ git push origin feature/report-card`
+        ];
+
+        let currentSnippetIndex = 0;
+        function renderCode() {
+          codeTerminalEl.innerHTML = codeSnippets[currentSnippetIndex] + '<span class="typing-cursor"></span>';
+          currentSnippetIndex = (currentSnippetIndex + 1) % codeSnippets.length;
+        }
+        renderCode();
+        setInterval(renderCode, 5000);
+      }
+
+      // 7. Animated Statistics Counters
+      const statNumbers = document.querySelectorAll('.stat-number[data-target]');
+      let statsAnimated = false;
+
+      const animateStats = () => {
+        statNumbers.forEach(stat => {
+          const target = parseFloat(stat.getAttribute('data-target'));
+          const prefix = stat.getAttribute('data-prefix') || '';
+          const suffix = stat.getAttribute('data-suffix') || '';
+          const isDecimal = target % 1 !== 0;
+
+          let current = 0;
+          const duration = 1800;
+          const stepTime = 30;
+          const steps = duration / stepTime;
+          const increment = target / steps;
+
+          const timer = setInterval(() => {
+            current += increment;
+            if (current >= target) {
+              current = target;
+              clearInterval(timer);
+            }
+            stat.textContent = `${prefix}${isDecimal ? current.toFixed(1) : Math.floor(current)}${suffix}`;
+          }, stepTime);
+        });
+      };
+
+      const statsSection = document.getElementById('hero-stats');
+      if (statsSection) {
+        const statsObserver = new IntersectionObserver((entries) => {
+          if (entries[0].isIntersecting && !statsAnimated) {
+            animateStats();
+            statsAnimated = true;
+          }
+        }, { threshold: 0.3 });
+        statsObserver.observe(statsSection);
+      } else {
+        animateStats();
+      }
+
+      // 8. Skills Filter & Instant Search
+      const skillFilterBtns = document.querySelectorAll('.skill-filter-btn');
+      const skillCards = document.querySelectorAll('.skill-card');
+      const skillSearchInput = document.getElementById('skill-search-input');
+
+      const filterSkills = () => {
+        const activeCategory = document.querySelector('.skill-filter-btn.active')?.getAttribute('data-filter') || 'all';
+        const searchQuery = skillSearchInput ? skillSearchInput.value.toLowerCase().trim() : '';
+
+        skillCards.forEach(card => {
+          const cardCategory = card.getAttribute('data-category');
+          const cardName = card.querySelector('.skill-name')?.textContent.toLowerCase() || '';
+          const cardTags = card.getAttribute('data-tags')?.toLowerCase() || '';
+
+          const matchesCategory = activeCategory === 'all' || cardCategory === activeCategory;
+          const matchesSearch = searchQuery === '' || cardName.includes(searchQuery) || cardTags.includes(searchQuery);
+
+          if (matchesCategory && matchesSearch) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      };
+
+      if (skillFilterBtns) {
+        skillFilterBtns.forEach(btn => {
+          btn.addEventListener('click', () => {
+            skillFilterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            filterSkills();
+          });
+        });
+      }
+
+      if (skillSearchInput) {
+        skillSearchInput.addEventListener('input', filterSkills);
+      }
+
+      // 9. Projects Filtering
+      const projectFilterBtns = document.querySelectorAll('.project-filter-btn');
+      const projectCards = document.querySelectorAll('.project-card');
+
+      if (projectFilterBtns) {
+        projectFilterBtns.forEach(btn => {
+          btn.addEventListener('click', () => {
+            projectFilterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const filter = btn.getAttribute('data-filter');
+
+            projectCards.forEach(card => {
+              const category = card.getAttribute('data-category');
+              if (filter === 'all' || category === filter) {
+                card.style.display = 'flex';
+              } else {
+                card.style.display = 'none';
+              }
+            });
+          });
+        });
+      }
+
+      // 10. FAQ Accordion Handler
+      const faqItems = document.querySelectorAll('.faq-item');
+      faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        if (question) {
+          question.addEventListener('click', () => {
+            const isActive = item.classList.contains('active');
+            faqItems.forEach(f => f.classList.remove('active'));
+            if (!isActive) {
+              item.classList.add('active');
+            }
+          });
+        }
+      });
+
+      // 11. Contact Form Real-time Validation
+      const contactForm = document.getElementById('contact-form');
+      const formSuccessMsg = document.getElementById('form-success-toast');
+
+      if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+
+          let isValid = true;
+          const nameInput = document.getElementById('contact-name');
+          const emailInput = document.getElementById('contact-email');
+          const subjectInput = document.getElementById('contact-subject');
+          const messageInput = document.getElementById('contact-message');
+
+          const validateGroup = (input, condition, errorText) => {
+            if (!input) return;
+            const group = input.closest('.form-group');
+            const errorEl = group ? group.querySelector('.form-error') : null;
+
+            if (!condition) {
+              if (group) group.classList.add('error');
+              if (errorEl) errorEl.textContent = errorText;
+              isValid = false;
+            } else {
+              if (group) group.classList.remove('error');
+            }
+          };
+
+          if (nameInput) validateGroup(nameInput, nameInput.value.trim().length >= 2, 'Please enter your full name');
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (emailInput) validateGroup(emailInput, emailRegex.test(emailInput.value.trim()), 'Please enter a valid email address');
+          if (subjectInput) validateGroup(subjectInput, subjectInput.value.trim().length >= 3, 'Please enter a subject');
+          if (messageInput) validateGroup(messageInput, messageInput.value.trim().length >= 10, 'Message must be at least 10 characters long');
+
+          if (isValid) {
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            if (submitBtn) {
+              submitBtn.disabled = true;
+              submitBtn.innerHTML = `<i class="lucide-loader-2 animate-spin"></i> Sending...`;
+            }
+
+            setTimeout(() => {
+              if (submitBtn) {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = `<i class="lucide-send"></i> Send Message`;
+              }
+              contactForm.reset();
+              if (formSuccessMsg) {
+                formSuccessMsg.style.display = 'block';
+                setTimeout(() => {
+                  formSuccessMsg.style.display = 'none';
+                }, 6000);
+              }
+            }, 1200);
+          }
+        });
+      }
+
+      // Copy Email
+      const copyEmailBtn = document.getElementById('copy-email-btn');
+      if (copyEmailBtn) {
+        copyEmailBtn.addEventListener('click', () => {
+          const emailText = 'hemasaini299@gmail.com';
+          navigator.clipboard.writeText(emailText).then(() => {
+            const origText = copyEmailBtn.innerHTML;
+            copyEmailBtn.innerHTML = `<i class="lucide-check"></i> Email Copied!`;
+            copyEmailBtn.style.backgroundColor = '#10b981';
+            copyEmailBtn.style.color = '#ffffff';
+
+            setTimeout(() => {
+              copyEmailBtn.innerHTML = origText;
+              copyEmailBtn.style.backgroundColor = '';
+              copyEmailBtn.style.color = '';
+            }, 2500);
+          });
+        });
+      }
+
+      // 12. Modals (Resume, Case Studies, Articles)
+      const modals = document.querySelectorAll('.modal-overlay');
+      const modalCloseBtns = document.querySelectorAll('.modal-close-btn');
+
+      const openModal = (modalId) => {
+        const modal = document.getElementById(modalId);
+        if (modal) {
+          modal.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        }
+      };
+
+      const closeModal = (modal) => {
+        if (modal) {
+          modal.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+      };
+
+      modalCloseBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const modal = btn.closest('.modal-overlay');
+          closeModal(modal);
+        });
+      });
+
+      modals.forEach(modal => {
+        modal.addEventListener('click', (e) => {
+          if (e.target === modal) {
+            closeModal(modal);
+          }
+        });
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          modals.forEach(modal => closeModal(modal));
+        }
+      });
+
+      const resumeTriggers = document.querySelectorAll('.trigger-resume-modal');
+      resumeTriggers.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          openModal('resume-modal');
+        });
+      });
+
+      // Project Case Study Triggers
+      const projectData = {
+        'student-report-card': {
+          title: 'Student Report Card (Python)',
+          category: 'Python • Student Project',
+          overview: 'A console-based Python application developed to simplify student grade calculations, mark management, and report generation.',
+          problem: 'Managing student marks manually can lead to computation errors in total marks, percentage, and grade assignments.',
+          methodology: 'Built using Python fundamentals including control structures, user-defined functions, data structures (dictionaries and lists), and file handling for saving student data.',
+          results: [
+            'Accurately calculates total marks, percentage, and assigns grades automatically.',
+            'Saves student records to text files for persistent storage.',
+            'Provides a clean interactive menu interface for adding, searching, and viewing report cards.'
+          ],
+          github: '#',
+          demo: '#'
+        },
+        'portfolio-website': {
+          title: 'Personal Portfolio Website',
+          category: 'Web Development • Responsive Design',
+          overview: 'A modern, responsive personal portfolio website designed and built to present my skills, goals, learning journey, and projects.',
+          problem: 'As a Computer Science student, having an organized digital space is essential to share my progress, projects, and career goals with mentors and recruiters.',
+          methodology: 'Constructed with modern HTML5, CSS3 with dark mode support, and vanilla JavaScript for interactive UI elements, smooth scrolling, filtering, and animations.',
+          results: [
+            'Fully responsive across desktop, tablet, and mobile displays.',
+            'Clean Apple and Microsoft corporate-style visual design with dark mode toggle.',
+            'Interactive skill search and project filter tabs.'
+          ],
+          github: '#',
+          demo: '#'
+        },
+        'upcoming-projects': {
+          title: 'More Projects Coming Soon',
+          category: 'AI/ML • Cybersecurity • Roadmap',
+          overview: 'An overview of upcoming projects planned as part of my ongoing learning in AI, Machine Learning, and Ethical Hacking.',
+          problem: 'To transition into AI/ML and Ethical Hacking, building practical hands-on projects is key to developing real-world problem-solving skills.',
+          methodology: 'Currently studying Python libraries for Machine Learning (Scikit-Learn, NumPy, Pandas) and fundamental networking & security tools.',
+          results: [
+            'Upcoming: AI-powered image classification model using Python.',
+            'Upcoming: Vulnerability scanner and network security analysis scripts.',
+            'Upcoming: Open-source contributions to GitHub developer tools.'
+          ],
+          github: '#',
+          demo: '#'
+        }
+      };
+
+      const caseStudyTriggers = document.querySelectorAll('.trigger-case-study');
+      caseStudyTriggers.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          const projectId = btn.getAttribute('data-project');
+          const modalTitle = document.getElementById('case-study-title');
+          const modalBody = document.getElementById('case-study-body');
+
+          if (projectId && projectData[projectId]) {
+            const data = projectData[projectId];
+            if (modalTitle) modalTitle.textContent = data.title;
+            if (modalBody) {
+              modalBody.innerHTML = `
+                <div class="case-study-content">
+                  <div class="section-badge">${data.category}</div>
+                  <p class="highlight-box">${data.overview}</p>
+                  <h4 style="font-weight:700; margin: 1.5rem 0 0.5rem 0;">Problem Statement & Challenge</h4>
+                  <p style="color:var(--text-muted); line-height:1.6; margin-bottom:1.5rem;">${data.problem}</p>
+                  <h4 style="font-weight:700; margin: 1.5rem 0 0.5rem 0;">Architecture & Methodology</h4>
+                  <p style="color:var(--text-muted); line-height:1.6; margin-bottom:1.5rem;">${data.methodology}</p>
+                  <h4 style="font-weight:700; margin: 1.5rem 0 0.5rem 0;">Key Findings & Results</h4>
+                  <ul style="list-style:disc; padding-left:1.5rem; color:var(--text-muted); margin-bottom:1.5rem; line-height:1.7;">
+                    ${data.results.map(r => `<li>${r}</li>`).join('')}
+                  </ul>
+                  <div style="display:flex; gap:1rem; margin-top:2rem; flex-wrap:wrap;">
+                    <a href="${data.github}" class="btn btn-primary"><i class="lucide-github"></i> Repository</a>
+                    <a href="${data.demo}" class="btn btn-secondary"><i class="lucide-external-link"></i> Live Demo</a>
+                  </div>
+                </div>
+              `;
+            }
+            openModal('case-study-modal');
+          }
+        });
+      });
+
+      // Article Reader Triggers
+      const articleData = {
+        'transformer-arch': {
+          title: 'Understanding Attention Mechanisms & The Transformer Architecture',
+          author: 'Hema Saini',
+          date: 'July 15, 2026',
+          readTime: '6 min read',
+          content: `
+            <p>The release of the seminal paper <em>"Attention Is All You Need"</em> by Vaswani et al. in 2017 revolutionized Natural Language Processing and modern Artificial Intelligence. In this article, we dissect why self-attention replaced recurrent models like LSTMs and how Transformers power state-of-the-art Large Language Models today.</p>
+
+            <h3 style="font-weight:700; color:var(--text-main); margin:1.5rem 0 0.5rem 0;">1. The Limits of Sequential Processing</h3>
+            <p>Before Transformers, sequential models like RNNs and GRUs processed tokens one by one from left to right. This created two critical bottlenecks: first, sequential computation hindered GPU parallelization; second, long-range dependencies suffered from vanishing gradients across long sequence lengths.</p>
+
+            <h3 style="font-weight:700; color:var(--text-main); margin:1.5rem 0 0.5rem 0;">2. Scaled Dot-Product Self-Attention</h3>
+            <p>Self-attention allows every token in an input sequence to dynamically weight its relationship with every other token, regardless of positional distance. By computing Query (Q), Key (K), and Value (V) matrices, the attention score is calculated as:</p>
+            <pre style="background:var(--bg-tertiary); padding:1rem; border-radius:8px; margin:1rem 0;">Attention(Q, K, V) = softmax( (Q * K^T) / sqrt(d_k) ) * V</pre>
+
+            <h3 style="font-weight:700; color:var(--text-main); margin:1.5rem 0 0.5rem 0;">3. Multi-Head Attention & Positional Encoding</h3>
+            <p>By splitting Queries, Keys, and Values into multiple projections ("heads"), the model simultaneously attends to information from different representation subspaces. Since Transformers process all tokens concurrently, sinusoidal positional encodings are injected to preserve sequence order information.</p>
+
+            <p style="margin-top:1.5rem;">Understanding these foundational mechanics is essential for any Machine Learning Engineer building, fine-tuning, or optimizing modern LLM pipelines.</p>
+          `
+        },
+        'cnn-from-scratch': {
+          title: 'How to Build and Train Your First Convolutional Neural Network from Scratch',
+          author: 'Hema Saini',
+          date: 'June 28, 2026',
+          readTime: '8 min read',
+          content: `
+            <p>Convolutional Neural Networks (CNNs) are the backbone of modern Computer Vision, from medical image diagnosis to autonomous vehicle perception. In this guide, we walk step-by-step through designing a PyTorch CNN architecture from first principles.</p>
+
+            <h3 style="font-weight:700; color:var(--text-main); margin:1.5rem 0 0.5rem 0;">1. Anatomy of a Convolutional Layer</h3>
+            <p>Unlike standard fully connected layers, a 2D Conv layer slides small kernel filters across input spatial dimensions (height x width). This extracts local spatial features such as edges, gradients, textures, and object parts while sharing parameters across the image grid.</p>
+
+            <h3 style="font-weight:700; color:var(--text-main); margin:1.5rem 0 0.5rem 0;">2. Pooling and Activation Functions</h3>
+            <p>Max-Pooling layers downsample feature map dimensions, reducing memory footprint while granting translation invariance. ReLU activations introduce non-linearity, allowing the network to learn intricate hierarchical decision boundaries.</p>
+
+            <h3 style="font-weight:700; color:var(--text-main); margin:1.5rem 0 0.5rem 0;">3. Preventing Overfitting with Augmentation</h3>
+            <p>Deep networks easily memorize small training datasets. Employing random rotations, color jittering, and dropout layers enforces robust feature generalization on unseen validation samples.</p>
+          `
+        },
+        'ai-ethics': {
+          title: 'Ethics and Bias in Machine Learning: Building Responsible AI Systems',
+          author: 'Hema Saini',
+          date: 'May 10, 2026',
+          readTime: '5 min read',
+          content: `
+            <p>As Artificial Intelligence algorithms increasingly automate high-stakes decisions in healthcare, recruitment, and law enforcement, ensuring fairness, transparency, and accountability is a fundamental technical requirement.</p>
+
+            <h3 style="font-weight:700; color:var(--text-main); margin:1.5rem 0 0.5rem 0;">1. Where Bias Enters the Pipeline</h3>
+            <p>Machine learning models do not invent bias out of thin air — they reflect historical disparities present in training data. Unbalanced sampling distributions, historical proxy variables, and label noise lead to systematic performance degradation across underrepresented demographics.</p>
+
+            <h3 style="font-weight:700; color:var(--text-main); margin:1.5rem 0 0.5rem 0;">2. Technical Interventions for Fairness</h3>
+            <p>Engineers can audit model equity using metrics such as Equalized Odds and Demographic Parity. Mitigation strategies include pre-processing re-weighting, in-processing adversarial debiasing, and post-processing decision threshold adjustments.</p>
+
+            <h3 style="font-weight:700; color:var(--text-main); margin:1.5rem 0 0.5rem 0;">3. Explainable AI (XAI)</h3>
+            <p>Black-box models diminish user trust. Integrating interpretability techniques like SHAP (SHapley Additive exPlanations) and LIME allows engineers and stakeholders to verify model reasoning before deployment.</p>
+          `
+        }
+      };
+
+      const articleTriggers = document.querySelectorAll('.trigger-article-reader');
+      articleTriggers.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          const articleId = btn.getAttribute('data-article');
+          const modalTitle = document.getElementById('article-title');
+          const modalBody = document.getElementById('article-body');
+
+          if (articleId && articleData[articleId]) {
+            const data = articleData[articleId];
+            if (modalTitle) modalTitle.textContent = data.title;
+            if (modalBody) {
+              modalBody.innerHTML = `
+                <div style="margin-bottom:1.5rem; color:var(--text-light); font-size:0.9rem;">
+                  <span>By ${data.author}</span> • <span>${data.date}</span> • <span>${data.readTime}</span>
+                </div>
+                <div style="color:var(--text-muted); line-height:1.8; font-size:1.02rem;">
+                  ${data.content}
+                </div>
+              `;
+            }
+            openModal('article-modal');
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>
